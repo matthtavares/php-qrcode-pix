@@ -21,6 +21,9 @@ class Gerador
     const CHAVE_EMAIL = 'EMAIL';
     const CHAVE_ALEATORIA = 'ALEATORIA';
 
+    const OUTPUT_JPG = 'jpg';
+    const OUTPUT_PNG = 'png';
+
     /**
      * Matriz com os valores para gerar PIX.
      */
@@ -356,13 +359,19 @@ class Gerador
      * Gera a imagem do QR Code em JPG.
      *
      * @author Mateus Tavares
-     * @param boolean $base64 
+     * @param string $output Formato da imagem a ser gerada.
+     * @param bool $base64 Se deve retornar como base64 ou binário.
      * @return mixed
      */
-    public function gerarQRCode( bool $base64 = false )
+    public function gerarQRCode( string $output = 'png', bool $base64 = false )
     {
+        $output = strtolower($output);
+
+        if( $output == 'jpeg' ) $output = 'jpg';
+        if( $output != 'jpg' && $output != 'png' ) $output = 'png';
+
         $options = new QROptions([
-            'outputType'  => QRCode::OUTPUT_IMAGE_JPG, // setando o output como JPG
+            'outputType'  => $output, // setando o output como JPG
             'imageBase64' => $base64, // Se o retorno é como Base64 ou binário.
         ]);
         return (new QRCode($options))->render($this->gerarPix());

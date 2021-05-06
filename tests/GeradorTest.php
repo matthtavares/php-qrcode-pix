@@ -12,7 +12,7 @@ class GeradorTest extends TestCase
 
     protected function setUp() : void
     {
-        $this->gerador = new Gerador(Gerador::CHAVE_CPF, '01408686406', false, 'Teste PIX com açentós', 0.01, 'Mateus Antônio Tavares', '***', 'João Pessoa');
+        $this->gerador = new Gerador(Gerador::CHAVE_ALEATORIA, '4b5e9b53-bded-4f60-8ba3-e1b2cc3088c5', false, 'Teste PIX com açentós', 0.01, 'Mateus Antônio Tavares', '***', 'João Pessoa');
     }
 
     public function testGerarCopiaECola()
@@ -31,7 +31,7 @@ class GeradorTest extends TestCase
 
     public function testGerarQrBase()
     {
-        $pix = $this->gerador->gerarQRCode(true);
+        $pix = $this->gerador->gerarQRCode(GERADOR::OUTPUT_PNG, true);
         file_put_contents(__DIR__.'/cache/testGerarQrBase.html', '<img src="' . $pix . '">');
         $this->assertNotNull($pix);
     }

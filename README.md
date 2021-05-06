@@ -78,10 +78,14 @@ O segundo é `013642a57095-84f3-4a42-b9fb-d08935c86f47`:
 
 Se você está apreciando o conteúdo deste trabalho, sinta-se livre para fazer qualquer doação para a chave `42a57095-84f3-4a42-b9fb-d08935c86f47` :)
 
-## Como instalar e utilizar
+## Instalação e Uso
 ```
 composer install matthtavares/php-qrcode-pix
 ```
+
+### Exemplos
+
+Na pasta de *exemplos* do repositório há algumas demonstrações de como utilizar o gerador de QR Code e exibir uma imagem em base64 no seu site ou como salvar o QR Code diretamente em um arquivo de imagem.
 
 ### Dependências
 
